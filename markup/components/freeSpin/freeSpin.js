@@ -35,8 +35,8 @@ export let freeSpin = (function () {
         currentWinCents: 0
     };
 
-    function start(configObj = defaultConfig) {
-        config = configObj;
+    function start(configObj) {
+        config = configObj || defaultConfig;
     }
 
     function hideBalance() {

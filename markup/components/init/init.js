@@ -1,5 +1,3 @@
-import { store } from 'components/store/store';
-
 import { utils } from 'components/utils/utils';
 import { storage } from 'components/storage/storage';
 import { events } from 'components/events/events';
@@ -48,7 +46,6 @@ export let init = (function () {
 
             storage.changeState('mode', 'bonus');
             storage.write('savedBonus', savedBonus);
-
         }
     }
 
@@ -76,9 +73,6 @@ export let init = (function () {
                 const linesString = initData.Lines;
                 const lines = parsers.lines(linesString);
                 const linesCoords = parsers.linesCoords(lines);
-
-                store.data('initData', initData);
-                store.data('lines', lines);
 
                 // Записываем данные в Storage
                 storage.write('initData', initData);

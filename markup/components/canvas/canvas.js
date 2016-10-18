@@ -48,7 +48,7 @@ export let canvas = (function () {
 
     function iosFullScreenHack() {
         if ($('html').hasClass('ios') || $('html').hasClass('iphone')) {
-            $(document).on('touchmove', false);
+            $(document).bind('touchmove', false);
         }
         $(function () {
             if (!$('html').hasClass('ios') || !$('html').hasClass('iphone')) {

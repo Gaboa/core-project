@@ -2,7 +2,6 @@
 // TODO: разобраться с тем как подтягивать библиотечку
 // TODO: разобраться как сделать доступными модули из консоли
 // import create from 'components/webgl/webgl-0.8.2.min.js';
-import { store } from 'components/store/store';
 
 import { events } from 'components/events/events';
 import { storage } from 'components/storage/storage';
@@ -140,4 +139,3 @@ freeSpin.start();
 
 export { storage };
 export { events };
-export { store };

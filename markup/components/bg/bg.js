@@ -1,21 +1,8 @@
 // import CreateJS
 // import TimelineMax
-import { store } from 'components/store/store';
-
 import { utils } from 'components/utils/utils';
 import { storage } from 'components/storage/storage';
 import { events } from 'components/events/events';
-
-console.log('dis obj:', createjs.Container.prototype);
-
-createjs.Container.prototype.addMyChild = function(...rest) {
-    rest.forEach((child) => {
-        this.addChild(child);
-        if (child.name && !this[child.name]) {
-            this[child.name] = child;
-        }
-    });
-};
 
 export let bg = (function () {
 
@@ -38,7 +25,6 @@ export let bg = (function () {
         const loader = storage.read('loadResult');
 
         const bgContainer = new c.Container().set({name: 'bgContainer'});
-        store.el('bgContainer', bgContainer);
         const fgContainer = new c.Container().set({name: 'fgContainer'});
         const mainBG = new c.Bitmap(loader.getResult('newBGLight')).set({name: 'mainBG'});
         const gameBG = new c.Sprite(loader.getResult('bg'), 'gameBG').set({name: 'gameBG'});
@@ -80,10 +66,7 @@ export let bg = (function () {
         });
 
 
-        bgContainer.addMyChild(mainBG, gameBG);
-        bgContainer.addChild(footerBgUp, footerBgDown, home);
-        // bgContainer.mainBG = mainBG;
-        // bgContainer.gameBG = gameBG;
+        bgContainer.addChild(mainBG, gameBG, footerBgUp, footerBgDown, home);
         fgContainer.addChild(gameMachine, fonar);
         stage.addChildAt(bgContainer, fgContainer, 0);
 
