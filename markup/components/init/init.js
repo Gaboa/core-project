@@ -49,6 +49,19 @@ export let init = (function () {
         }
     }
 
+    function checkDevice() {
+        let html = $('html');
+        if (html.hasClass('desktop')) {
+            alert('desktop');
+        }
+        if (html.hasClass('tablet')) {
+            alert('tablet');
+        }
+        if (html.hasClass('mobile')) {
+            alert('mobile');
+        }
+    }
+
     function checkCasinoData(store) {
         if (store.getItem('userID')) {
             config.userID = store.getItem('userID');
@@ -59,6 +72,8 @@ export let init = (function () {
     }
 
     function login() {
+
+        checkDevice();
 
         // Проверяем есть ли сохранненные данные от казино
         checkCasinoData(localStorage);
